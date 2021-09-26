@@ -45,6 +45,7 @@ class PatchManager: public QObject
     Q_PROPERTY(bool homescreenNeedRestart READ isHomescreenNeedRestart NOTIFY homescreenNeedRestartChanged)
     Q_PROPERTY(QString serverMediaUrl READ serverMediaUrl CONSTANT)
     Q_PROPERTY(bool developerMode READ developerMode WRITE setDeveloperMode NOTIFY developerModeChanged)
+    Q_PROPERTY(QString osVersion MEMBER m_osVersion CONSTANT)
 public:
     explicit PatchManager(QObject *parent = 0);
     static PatchManager *GetInstance(QObject *parent = 0);
@@ -70,6 +71,7 @@ public slots:
     QString valueIfExists(const QString & filename);
     bool fileExists(const QString &filename);
     bool callUninstallOldPatch(const QString & patch);
+
 signals:
     void appsNeedRestartChanged();
     void homescreenNeedRestartChanged();
@@ -89,6 +91,7 @@ private:
     bool m_homescreenNeedRestart;
     QNetworkAccessManager * m_nam;
     QSettings *m_settings;
+    QString m_osVersion;
 };
 
 #endif // PATCHMANAGER_H

@@ -37,7 +37,7 @@ import org.SfietKonstantin.patchmanager 2.0
 Page {
     id: container
 
-    property string release
+    property string release: PatchManager.osVersion
     property bool pendingPatchesRefresh: true
 
     function dummy() {
@@ -63,23 +63,6 @@ Page {
                 pendingPatchesRefresh = false
                 patchmanagerDbusInterface.listPatches()
             }
-        }
-    }
-
-    Component.onCompleted: {
-        ssuDbusInterface.getVersion()
-    }
-
-    DBusInterface {
-        id: ssuDbusInterface
-        service: "org.nemo.ssu"
-        path: "/org/nemo/ssu"
-        iface: "org.nemo.ssu"
-        bus: DBus.SystemBus
-        function getVersion() {
-            typedCall("release", [{"type": "b", "value": false}], function (version) {
-                release = version
-            })
         }
     }
 
@@ -309,7 +292,7 @@ Page {
                 var qmlFile = "/usr/share/patchmanager/patches/%1/main.qml".arg(patchName)
                 if (PatchManager.fileExists(qmlFile)) {
                     var translator = PatchManager.installTranslator(patchName)
-                    var page = pageStack.push("/usr/share/patchmanager/patches/%1/main.qml".arg(patchName))
+                    var page = pageStack.push(qmlFile)
                     if (translator)
                         page.Component.destruction.connect(function() { PatchManager.removeTranslator(patchName) })
                 } else {

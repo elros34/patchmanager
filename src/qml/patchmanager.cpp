@@ -63,6 +63,7 @@ PatchManager::PatchManager(QObject *parent)
 {
     m_nam = new QNetworkAccessManager(this);
     m_settings = new QSettings(QDir::homePath() + "/.config/patchmanager2.conf", QSettings::IniFormat, this);
+    m_osVersion = QSettings("/etc/os-release", QSettings::IniFormat).value("VERSION_ID").toString();
 }
 
 PatchManager *PatchManager::GetInstance(QObject *parent)
