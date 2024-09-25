@@ -132,9 +132,10 @@ esac
 %{_datadir}/jolla-settings/entries/%{name}.json
 %{_datadir}/%{name}/icons/icon-m-patchmanager.png
 
-%{_datadir}/themes/%{theme}/meegotouch/z1.0/icons/*.png
-%{_datadir}/themes/%{theme}/meegotouch/z1.25/icons/*.png
-%{_datadir}/themes/%{theme}/meegotouch/z1.5/icons/*.png
-%{_datadir}/themes/%{theme}/meegotouch/z1.5-large/icons/*.png
-%{_datadir}/themes/%{theme}/meegotouch/z1.75/icons/*.png
-%{_datadir}/themes/%{theme}/meegotouch/z2.0/icons/*.png
+%{_datadir}/themes/%{theme}/silica/z1.0/icons/*.png
+%{_datadir}/themes/%{theme}/silica/z1.25/icons/*.png
+%{_datadir}/themes/%{theme}/silica/z1.5/icons/*.png
+%{_datadir}/themes/%{theme}/silica/z1.5-large/icons/*.png
+%{_datadir}/themes/%{theme}/silica/z1.75/icons/*.png
+%{_datadir}/themes/%{theme}/silica/z2.0/icons/*.png
+%{_datadir}/themes/%{theme}/silica/z2.5/icons/*.png
